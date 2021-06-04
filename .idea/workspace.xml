@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1699e5a-0c65-40ed-8992-86f553618382" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Dell.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/StudyTour.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/asset.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/components.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/entity.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/rendering.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/script.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie_test/asset.z" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie_test/zombies/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/zombie_test/zombies/actions.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/zombie/core.py" afterPath="$PROJECT_DIR$/zombie/core.py" />
-      <change beforePath="$PROJECT_DIR$/zombie/material.py" afterPath="$PROJECT_DIR$/zombie/material.py" />
-      <change beforePath="$PROJECT_DIR$/zombie/scene.py" afterPath="$PROJECT_DIR$/zombie/scene.py" />
-      <change beforePath="$PROJECT_DIR$/zombie_test/behaviours/__init__.py" afterPath="$PROJECT_DIR$/zombie/animation.py" />
-      <change beforePath="$PROJECT_DIR$/zombie_test/behaviours/beahviours.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zombie_test/main.py" afterPath="$PROJECT_DIR$/zombie_test/main.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/zombie/physics.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,11 +25,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zombie/script.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="122">
               <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="physics.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zombie/physics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,16 +117,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="material.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zombie/material.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -166,6 +150,7 @@
         <option value="$PROJECT_DIR$/zombie_test/zombies/actions.py" />
         <option value="$PROJECT_DIR$/zombie/script.py" />
         <option value="$PROJECT_DIR$/zombie_test/main.py" />
+        <option value="$PROJECT_DIR$/zombie/physics.py" />
       </list>
     </option>
   </component>
@@ -547,6 +532,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zombie/physics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
