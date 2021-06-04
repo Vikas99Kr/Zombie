@@ -1,16 +1,24 @@
-from zombie.core import GameObject,Zombie
-from  zombie.material import TextureMaterial
+# from zombie.core import ZombieSystem,GameView,Input
+# ZombieSystem.init()
+# display=GameView(600,500,"MyGame")
+# def render(screen):
+#     if Input.get_key_down('enter'):
+#         print("Going Up")
+#     elif Input.get_key_up('nenter'):
+#         print("Some")
+# display.run(render)
+# ZombieSystem.quit()
 
-gameObject=GameObject("MyObject")
-gameObject.put_property('material',TextureMaterial())
-gameObject.put_property('script','MyScript')
-gameObject.get_property('material').get_material()
-print(gameObject)
 
-zombie=Zombie()
-zombie.init_system()
-zombie.import_script_packages(scripts=[
-    "zombie_test.behaviours.beahviours"
-])
-print(Zombie.mapped_beahviour)
-zombie.attach_everything(gameObject)
+
+from zombie.entity import Entity
+from zombie.material import TextureMaterial,Material
+from zombie.asset import AssetManager
+from zombie.script import ScriptManager
+ScriptManager.require_import(['zombie_test.zombies.actions'])
+AssetManager.load_asset()
+entity=Entity(_name="Square")
+material:Material=TextureMaterial(image=AssetManager.get_asset("icon"))
+entity.put_component('material',material)
+print(entity)
+print(ScriptManager.behaviours)
