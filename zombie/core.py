@@ -49,7 +49,7 @@ class Input:
         "lshift": pygame.KMOD_LSHIFT,
         "rshift": pygame.KMOD_RSHIFT,
         "enter": pygame.K_RETURN,
-        "nenter": pygame.K_KP_ENTER
+        "nenter": pygame.K_KP_ENTER,
     }
 
     @staticmethod
@@ -67,6 +67,12 @@ class Input:
         lst = pygame.event.get(pygame.KEYUP)
         if lst:
             return lst[0].key == Input.__translate(key)
+        return False
+
+    @staticmethod
+    def get_key_pressed(key:str):
+        if pygame.key.get_pressed()[Input.__translate(key)]:
+            return True
         return False
 
 
