@@ -1,5 +1,4 @@
 import pygame
-import pygame.event
 import time
 
 
@@ -51,6 +50,8 @@ class Input:
         "enter": pygame.K_RETURN,
         "nenter": pygame.K_KP_ENTER,
     }
+    __stored=[]
+    __storedu=[]
 
     @staticmethod
     def __translate(key: str):
@@ -74,8 +75,28 @@ class Input:
         if pygame.key.get_pressed()[Input.__translate(key)]:
             return True
         return False
-
-
+    @staticmethod
+    def get_mouse_button_down(btn:int):
+        lst=pygame.event.get(pygame.MOUSEBUTTONDOWN)
+        if Input.__stored:
+            lst=Input.__stored
+        if lst:
+            if pygame.mouse.get_pressed(3)[btn]:
+                Input.__stored=[]
+                return True
+            else:
+                Input.__stored=lst
+    @staticmethod
+    def get_mosue_button_up(btn:int):
+        lst=pygame.event.get(pygame.MOUSEBUTTONUP)
+        if Input.__storedu:
+            lst=Input.__stored
+        if lst:
+            if lst[0].button ==  btn+1:
+                Input.__storedu=[]
+                return True
+            else:
+                Input.__storedu=lst
 class GameView:
     def __init__(self, width, height, title, icon=None, resizable=False):
         self.screen = pygame.display.set_mode((width, height))
