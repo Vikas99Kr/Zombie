@@ -51,7 +51,8 @@ class Input:
         "nenter": pygame.K_KP_ENTER,
     }
     __stored=[]
-    __storedu=[]
+    mouseup=[]
+    mousedown=[]
 
     @staticmethod
     def __translate(key: str):
@@ -77,26 +78,15 @@ class Input:
         return False
     @staticmethod
     def get_mouse_button_down(btn:int):
-        lst=pygame.event.get(pygame.MOUSEBUTTONDOWN)
-        if Input.__stored:
-            lst=Input.__stored
-        if lst:
+        if Input.mousedown:
             if pygame.mouse.get_pressed(3)[btn]:
-                Input.__stored=[]
                 return True
-            else:
-                Input.__stored=lst
+        return False
     @staticmethod
     def get_mosue_button_up(btn:int):
-        lst=pygame.event.get(pygame.MOUSEBUTTONUP)
-        if Input.__storedu:
-            lst=Input.__stored
-        if lst:
-            if lst[0].button ==  btn+1:
-                Input.__storedu=[]
+        if Input.mouseup:
+            if Input.mouseup[0].button ==  btn+1:
                 return True
-            else:
-                Input.__storedu=lst
 class GameView:
     def __init__(self, width, height, title, icon=None, resizable=False):
         self.screen = pygame.display.set_mode((width, height))
@@ -106,6 +96,10 @@ class GameView:
         while True:
             if pygame.event.get(pygame.QUIT):
                 return None
+            Input.mousedown=pygame.event.get(pygame.MOUSEBUTTONDOWN)
+            Input.mouseup=pygame.event.get(pygame.MOUSEBUTTONUP)
             callback(self.screen)
             pygame.display.update()
+            Input.mouseup.clear()
+            Input.mousedown.clear()
             time.sleep(1 / 120)

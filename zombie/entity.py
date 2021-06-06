@@ -1,14 +1,13 @@
 class Entity:
     def __init__(self, _name, _parent=None):
-        self._children = []
-        self._parent = _parent
-        self._name = _name
+        self.children = []
+        self.parent = _parent
+        self.name = _name
         self._component = {
             "renderer": None,  # Rendering System
-            "transform": None,
+            "transform": None, #physics System
             "collider": None,  # Physics system
-            "script": None,
-            "material": None,  # Rendering System
+            "script": None,  # Scripting system
             "animation": None,  # Animation System
         }
 
@@ -17,7 +16,10 @@ class Entity:
 
     def get_component(self, prop):
         return self._component[prop]
-
+    def on_add(self):
+        pass
+    def on_remove(self):
+        pass
     def __repr__(self):
         build: str = ""
         for i in self._component:

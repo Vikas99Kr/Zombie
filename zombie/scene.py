@@ -1,18 +1,15 @@
-from zombie.entity import Entity, Camera
-
-
-class Scene(Entity):
-    def __init__(self, children=[], camera=None):
+class Scene:
+    def __init__(self, children=[], camera=None,screen=None):
         self._children = children
         self.camera = camera
-
+        self.screen=screen
 
 class SceneManager:
     __scenes = {}
     __current = None
 
     @staticmethod
-    def get_current(scene_name):
+    def get_current():
         return SceneManager.__current
 
     @staticmethod
