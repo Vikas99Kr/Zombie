@@ -1,22 +1,29 @@
-from zombie.core import ZombieSystem, GameView, Input
-
+from zombie.core import ZombieSystem, GameView
+from zombie.scene import Scene
+from zombie.entity import Entity
+from zombie.components import SpriteRenderer,ScriptComponent
+from zombie.script import ScriptManager
+from zombie.material import TextureMaterial
+from zombie.asset import AssetManager
+rendering=True
 ZombieSystem.init()
 display = GameView(600, 500, "MyGame")
+ScriptManager.require_import(list_packages=[
+    'zombie_test.zombies.actions'
+])
 
 
-def render(screen):
-    if Input.get_key_pressed('enter'):
-        print("You pressed enter")
-    if Input.get_mouse_button_down(0):
-        print("Left Mouse Button is down")
-    if Input.get_mosue_button_up(0):
-        print("Left Mouse Button is released")
-    if Input.get_mouse_button_down(2):
-        print("Right mouse button is down")
-    if Input.get_mosue_button_up(2):
-        print("Right Mouse button is released")
+entity=Entity("ASLDKJF",None)
+enemy=Entity('Enemy',None)
+AssetManager.load_asset()
+entity.put_component('renderer',SpriteRenderer(TextureMaterial(AssetManager.get_asset('aeroplane'),(80,80))))
+entity.put_component('script',ScriptComponent('player'))
+
+enemy.put_component('renderer',SpriteRenderer(TextureMaterial(AssetManager.get_asset('icon'),(80,80))))
+enemy.put_component('script',ScriptComponent('enemy'))
 
 
-
-display.run(render)
+scene:Scene=Scene([entity,enemy],None,display.screen)
+display.run(scene)
+rendering=False
 ZombieSystem.quit()

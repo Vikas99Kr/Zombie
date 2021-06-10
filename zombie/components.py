@@ -1,40 +1,33 @@
 from zombie.material import TextureMaterial
 from zombie.physics import Transform
 class Component:
-    def __init__(self, data,entity):
-        self.__data = data
-        self.__entity=entity
-
-    def get(self):
-        return self.__data
-    def set(self,data):
-        self.__data=data
-    def get_p(self):
-        return self.__entity
+    def __init__(self):
+        pass
 
 
 class SpriteRenderer(Component):
-    def __init__(self, sprite:TextureMaterial,parent=None):
-        super().__init__(sprite,parent)
+    def __init__(self, sprite:TextureMaterial):
+        self.sprite=sprite
 
 class TransformComponent(Component):
-    def __init__(self, transform:Transform,parent=None):
-        super().__init__(transform,parent)
+    def __init__(self, transform:Transform):
+        self.transform=transform
 
 class ColliderComponent(Component):
-    def __init__(self, collider,parent=None):
-        super().__init__(collider,parent)
+    def __init__(self, collider):
+        self.collider=collider
 
 
 class ScriptComponent(Component):
-    def __init__(self, script,parent=None):
-        super().__init__(script,parent)
+    def __init__(self, script):
+        self.script=script
 
 
 class AnimationComponent(Component):
-    def __init__(self, animation,parent=None):
-        super().__init__(animation,parent)
+    def __init__(self, animation,controller):
+        self.animation=animation
+        self.controller=controller
 
 class ModelComponent(Component):
-    def __init__(self,model,parent=None):
-        super().__init__(model,parent)
+    def __init__(self,model):
+        self.model=model

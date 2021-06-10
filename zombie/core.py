@@ -1,7 +1,4 @@
 import pygame
-import time
-
-
 class ZombieSystem:
     @staticmethod
     def init():
@@ -88,18 +85,27 @@ class Input:
             if Input.mouseup[0].button ==  btn+1:
                 return True
 class GameView:
+    running=True
+    clock=pygame.time.Clock()
+    FPS=60
     def __init__(self, width, height, title, icon=None, resizable=False):
         self.screen = pygame.display.set_mode((width, height))
         pygame.display.set_caption(title)
 
-    def run(self, callback):
+
+    def run(self, scene):
         while True:
             if pygame.event.get(pygame.QUIT):
+                GameView.running=False
+                for i in scene.thread_list:
+                    i.join()
                 return None
             Input.mousedown=pygame.event.get(pygame.MOUSEBUTTONDOWN)
             Input.mouseup=pygame.event.get(pygame.MOUSEBUTTONUP)
-            callback(self.screen)
+            scene.on_update()
+
             pygame.display.update()
+            self.screen.fill(color=(0, 0, 0))
             Input.mouseup.clear()
             Input.mousedown.clear()
-            time.sleep(1 / 120)
+            GameView.clock.tick(GameView.FPS)

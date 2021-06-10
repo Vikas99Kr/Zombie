@@ -1,3 +1,5 @@
+from zombie.physics import Transform,Vector2D,Scalar
+from zombie.components import TransformComponent
 class Entity:
     def __init__(self, _name, _parent=None):
         self.children = []
@@ -5,7 +7,7 @@ class Entity:
         self.name = _name
         self._component = {
             "renderer": None,  # Rendering System
-            "transform": None, #physics System
+            "transform": TransformComponent(Transform(Vector2D(0,0),Vector2D(1,1),Scalar(0))), #physics System
             "collider": None,  # Physics system
             "script": None,  # Scripting system
             "animation": None,  # Animation System
